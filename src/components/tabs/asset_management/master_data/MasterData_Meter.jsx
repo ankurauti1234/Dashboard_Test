@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {  ChevronDown, Ellipsis } from "lucide-react";
+import { ChevronDown, Ellipsis } from "lucide-react";
 import {
   flexRender,
   getCoreRowModel,
@@ -49,7 +49,7 @@ const data = [
     wifiMac: "AA:BB:CC:DD:EE:FF",
     validFrom: "2024-01-01",
     validTo: "2025-12-31",
-    updatedBy: "John Doe"
+    updatedBy: "John Doe",
   },
   {
     meterId: "100002",
@@ -65,11 +65,10 @@ const data = [
     wifiMac: "BB:CC:DD:EE:FF:00",
     validFrom: "2024-02-01",
     validTo: "2026-01-31",
-    updatedBy: "Jane Smith"
+    updatedBy: "Jane Smith",
   },
   // ... 8 more entries with similar structure
 ];
-
 
 // Updated column definitions
 export const columns = [
@@ -202,8 +201,6 @@ function MasterData_Meter() {
   const [rowSelection, setRowSelection] = React.useState({});
   const [loading, setLoading] = React.useState(false);
 
-
-
   const table = useReactTable({
     data,
     columns,
@@ -226,7 +223,12 @@ function MasterData_Meter() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className={cn("w-16 h-16 border-4 border-dashed rounded-full animate-spin", "border-gray-400 border-t-transparent")}></div>
+        <div
+          className={cn(
+            "w-16 h-16 border-4 border-dashed rounded-full animate-spin",
+            "border-gray-400 border-t-transparent"
+          )}
+        ></div>
       </div>
     );
   }
@@ -238,7 +240,9 @@ function MasterData_Meter() {
           <Input
             placeholder="Filter Meters..."
             value={table.getColumn("meterId")?.getFilterValue() ?? ""}
-            onChange={(event) => table.getColumn("meterId")?.setFilterValue(event.target.value)}
+            onChange={(event) =>
+              table.getColumn("meterId")?.setFilterValue(event.target.value)
+            }
             className="max-w-sm"
           />
 
@@ -262,7 +266,7 @@ function MasterData_Meter() {
                     </div>
                     <div className="flex flex-col space-y-2">
                       <Label htmlFor="sim1">SIM 1</Label>
-                      <Input type="text" id="sim1" placeholder="8991000123456789" />
+                      <Input type="text" id="sim1" placeholder="89910000123456789" />
                     </div>
                     <div className="flex flex-col space-y-2">
                       <Label htmlFor="hardwareVersion">H/W Version</Label>
@@ -299,7 +303,9 @@ function MasterData_Meter() {
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) => column.toggleVisibility(!!value)}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
@@ -309,7 +315,7 @@ function MasterData_Meter() {
         </DropdownMenu>
       </div>
       <div className="rounded-md border">
-      <Table>
+        <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -318,7 +324,10 @@ function MasterData_Meter() {
                     <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
-                        : flexRender(header.column.columnDef.header, header.getContext())}
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
                     </TableHead>
                   );
                 })}
@@ -328,17 +337,26 @@ function MasterData_Meter() {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+                <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
                   No results.
                 </TableCell>
               </TableRow>
@@ -350,4 +368,4 @@ function MasterData_Meter() {
   );
 }
 
-export default MasterData_Meter
+export default MasterData_Meter;

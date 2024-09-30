@@ -22,7 +22,7 @@ import {
 const initialData = [
   {
     id: 1,
-    meterId: "10001",
+    meterId: "100001",
     hhId: "HH001",
     remoteId: "R001",
     eventId: "E001",
@@ -35,7 +35,7 @@ const initialData = [
   },
   {
     id: 2,
-    meterId: "10002",
+    meterId: "100002",
     hhId: "HH002",
     remoteId: "R002",
     eventId: "E002",
@@ -48,7 +48,7 @@ const initialData = [
   },
   {
     id: 3,
-    meterId: "10003",
+    meterId: "100003",
     hhId: "HH003",
     remoteId: "R003",
     eventId: "E003",
@@ -61,7 +61,7 @@ const initialData = [
   },
   {
     id: 4,
-    meterId: "10004",
+    meterId: "100004",
     hhId: "HH004",
     remoteId: "R004",
     eventId: "E004",
@@ -74,7 +74,7 @@ const initialData = [
   },
   {
     id: 5,
-    meterId: "10005",
+    meterId: "100005",
     hhId: "HH005",
     remoteId: "R005",
     eventId: "E005",
@@ -87,7 +87,7 @@ const initialData = [
   },
   {
     id: 6,
-    meterId: "10006",
+    meterId: "100006",
     hhId: "HH006",
     remoteId: "R006",
     eventId: "E006",
@@ -100,7 +100,7 @@ const initialData = [
   },
   {
     id: 7,
-    meterId: "10007",
+    meterId: "100007",
     hhId: "HH007",
     remoteId: "R007",
     eventId: "E007",
@@ -113,7 +113,7 @@ const initialData = [
   },
   {
     id: 8,
-    meterId: "10008",
+    meterId: "100008",
     hhId: "HH008",
     remoteId: "R008",
     eventId: "E008",
@@ -126,7 +126,7 @@ const initialData = [
   },
   {
     id: 9,
-    meterId: "10009",
+    meterId: "100009",
     hhId: "HH009",
     remoteId: "R009",
     eventId: "E009",
@@ -139,7 +139,7 @@ const initialData = [
   },
   {
     id: 10,
-    meterId: "10010",
+    meterId: "100010",
     hhId: "HH010",
     remoteId: "R010",
     eventId: "E010",
@@ -195,8 +195,6 @@ const FieldAlarms = () => {
         />
         <Button onClick={() => setGlobalFilter("")}>Clear</Button>
       </div>
-
-      
 
       <div className="rounded-md border">
         <Table>

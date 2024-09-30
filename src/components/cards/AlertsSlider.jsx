@@ -100,14 +100,14 @@ const alerts = [
     id: 10,
     type: "system",
     date: "2023-04-10",
-    deviceId: "100010",
+    deviceId: "1000010",
     status: "generated",
   },
 ];
 
 export default function AlertsSlider() {
   const [filter, setFilter] = useState("all");
-    const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredId, setHoveredId] = useState(null);
 
   const filteredAlerts = alerts.filter(
     (alert) => filter === "all" || alert.status === filter
@@ -126,31 +126,31 @@ export default function AlertsSlider() {
     }
   };
 
-    const getAlertColor = (status) => {
-      switch (status) {
-        case "generated":
-          return "bg-[#32ADE6]";
-        case "pending":
-          return "bg-[#FFB800]";
-        case "resolved":
-          return "bg-[#34C759]";
-        default:
-          return "bg-gray-500";
-      }
+  const getAlertColor = (status) => {
+    switch (status) {
+      case "generated":
+        return "bg-[#32ADE6]";
+      case "pending":
+        return "bg-[#FFB800]";
+      case "resolved":
+        return "bg-[#34C759]";
+      default:
+        return "bg-gray-500";
+    }
   };
-  
-      const iconColor = (status) => {
-        switch (status) {
-          case "generated":
-            return "text-[#32ADE6]";
-          case "pending":
-            return "text-[#FFB800]";
-          case "resolved":
-            return "text-[#34C759]";
-          default:
-            return "text-gray-500";
-        }
-      };
+
+  const iconColor = (status) => {
+    switch (status) {
+      case "generated":
+        return "text-[#32ADE6]";
+      case "pending":
+        return "text-[#FFB800]";
+      case "resolved":
+        return "text-[#34C759]";
+      default:
+        return "text-gray-500";
+    }
+  };
 
   return (
     <div className="w-full mt-4">

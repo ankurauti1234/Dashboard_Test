@@ -74,13 +74,13 @@ const Sidebar = () => {
   return (
     <aside
       className={`relative bg-white shadow-sm h-screen border  border-white ${
-        isSidebarOpen ? "w-64" : "w-20"
+        isSidebarOpen ? "w-64" : "w-fit"
       } transition-all duration-300`}
     >
       <button
         onClick={toggleSidebar}
         className={`top-2 p-1 shadow-lg rounded-full absolute left-52 bg-white ${
-          isSidebarOpen ? "left-[15rem]" : " left-[4rem]"
+          isSidebarOpen ? "left-[15rem]" : " left-[3.5rem]"
         }`}
       >
         {isSidebarOpen ? <ArrowLeft /> : <ArrowRight />}
@@ -91,7 +91,7 @@ const Sidebar = () => {
           {menuItems.map((item) => (
             <li
               key={item.path}
-              className={`hover:bg-secondary rounded-full w-full my-2 ${
+              className={`hover:bg-border rounded-full w-full my-2 ${
                 pathname === item.path ? "bg-accent" : ""
               } `}
             >

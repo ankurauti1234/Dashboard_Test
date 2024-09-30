@@ -29,7 +29,7 @@ import {
 const initialData = [
   {
     id: 1,
-    meterId: "10001",
+    meterId: "100001",
     meterStatusEvents: "Active",
     householdId: "HH001",
     config: "v1.0.1",
@@ -38,7 +38,7 @@ const initialData = [
   },
   {
     id: 2,
-    meterId: "10002",
+    meterId: "100002",
     meterStatusEvents: "Active",
     householdId: "HH002",
     config: "v1.0.1",
@@ -47,7 +47,7 @@ const initialData = [
   },
   {
     id: 3,
-    meterId: "10003",
+    meterId: "100003",
     meterStatusEvents: "Inactive",
     householdId: "HH003",
     config: "v1.0.0",
@@ -56,7 +56,7 @@ const initialData = [
   },
   {
     id: 4,
-    meterId: "10004",
+    meterId: "100004",
     meterStatusEvents: "Active",
     householdId: "HH004",
     config: "v1.0.1",
@@ -65,7 +65,7 @@ const initialData = [
   },
   {
     id: 5,
-    meterId: "10005",
+    meterId: "100005",
     meterStatusEvents: "Active",
     householdId: "HH005",
     config: "v1.0.2",

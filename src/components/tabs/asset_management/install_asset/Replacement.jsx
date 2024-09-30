@@ -18,7 +18,7 @@ import {
 
 const data = [
   {
-    MeterId: "10001",
+    MeterId: "100001",
     HHId: "HH001",
     TVId: "TV1234",
     RemoteId: "R001",
@@ -27,7 +27,7 @@ const data = [
     ReplacementInitiatedAt: "2024-03-15 10:00:00",
   },
   {
-    MeterId: "10002",
+    MeterId: "100002",
     HHId: "HH002",
     TVId: "TV5678",
     RemoteId: "R002",

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { Maximize2, Minimize2 } from "lucide-react"; // Import icons
+import { Maximize2, Minimize2 } from "lucide-react";
 
 // Default Leaflet marker icon fix
 delete L.Icon.Default.prototype._getIconUrl;
@@ -40,6 +40,17 @@ const LiveLocations = ({ devices }) => {
     setIsExpanded(!isExpanded);
   };
 
+  // Create custom marker icons
+  const onlineIcon = L.divIcon({
+    className: "custom-marker-icon",
+    html: '<div class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center shadow-md"></div>',
+  });
+
+  const offlineIcon = L.divIcon({
+    className: "custom-marker-icon",
+    html: '<div class="bg-red-500 rounded-full w-6 h-6 flex items-center justify-center shadow-md"></div>',
+  });
+
   return (
     <div
       className="bg-white p-2 rounded-lg relative"
@@ -51,7 +62,7 @@ const LiveLocations = ({ devices }) => {
       }}
     >
       <MapContainer
-        center={[20.5937, 78.9629]} // Default center coordinates (e.g., India)
+        center={[20.5937, 78.9629]}
         zoom={5}
         style={{
           height: "100%",
@@ -72,6 +83,7 @@ const LiveLocations = ({ devices }) => {
               device.coordinates.latitude,
               device.coordinates.longitude,
             ]}
+            icon={device.status === "online" ? onlineIcon : offlineIcon}
           >
             <Popup>
               <div>

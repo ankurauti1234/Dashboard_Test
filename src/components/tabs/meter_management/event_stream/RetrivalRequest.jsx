@@ -22,7 +22,7 @@ import { Search } from "lucide-react";
 const initialData = [
   {
     id: 1,
-    meterId: "10001",
+    meterId: "100001",
     hhId: "HH001",
     hwVersion: "v1.0.0",
     status: "Installed",
@@ -31,7 +31,7 @@ const initialData = [
   },
   {
     id: 2,
-    meterId: "10002",
+    meterId: "100002",
     hhId: "HH002",
     hwVersion: "v1.1.0",
     status: "Installed",
@@ -40,7 +40,7 @@ const initialData = [
   },
   {
     id: 3,
-    meterId: "10003",
+    meterId: "100003",
     hhId: "HH003",
     hwVersion: "v1.2.0",
     status: "Installed",
@@ -49,7 +49,7 @@ const initialData = [
   },
   {
     id: 4,
-    meterId: "10004",
+    meterId: "100004",
     hhId: "HH004",
     hwVersion: "v1.0.1",
     status: "Installed",
@@ -58,7 +58,7 @@ const initialData = [
   },
   {
     id: 5,
-    meterId: "10005",
+    meterId: "100005",
     hhId: "HH005",
     hwVersion: "v1.1.1",
     status: "Installed",
@@ -67,7 +67,7 @@ const initialData = [
   },
   {
     id: 6,
-    meterId: "10006",
+    meterId: "100006",
     hhId: "HH006",
     hwVersion: "v1.2.1",
     status: "Installed",
@@ -76,7 +76,7 @@ const initialData = [
   },
   {
     id: 7,
-    meterId: "10007",
+    meterId: "100007",
     hhId: "HH007",
     hwVersion: "v1.0.2",
     status: "Installed",
@@ -85,7 +85,7 @@ const initialData = [
   },
   {
     id: 8,
-    meterId: "10008",
+    meterId: "100008",
     hhId: "HH008",
     hwVersion: "v1.1.2",
     status: "Installed",
@@ -94,7 +94,7 @@ const initialData = [
   },
   {
     id: 9,
-    meterId: "10009",
+    meterId: "100009",
     hhId: "HH009",
     hwVersion: "v1.2.2",
     status: "Installed",
@@ -103,7 +103,7 @@ const initialData = [
   },
   {
     id: 10,
-    meterId: "10010",
+    meterId: "100010",
     hhId: "HH010",
     hwVersion: "v1.0.3",
     status: "Installed",

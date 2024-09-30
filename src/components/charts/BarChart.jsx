@@ -51,12 +51,12 @@ export default function BarChart({ logoData, audioData }) {
   });
 
   return (
-    <div className="flex flex-col bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 shadow-inner shadow-accent/50 border p-2 rounded-lg">
+    <div className="flex flex-col bg-white border p-2 rounded-lg">
       <Select value={filter} onValueChange={setFilter}>
-        <SelectTrigger className="w-[180px] mb-2">
+        <SelectTrigger className="w-[180px] mb-2 rounded-full border-none">
           <SelectValue placeholder="Select filter" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-white rounded-xl">
           <SelectItem value="all">All</SelectItem>
           <SelectItem value="logo">Logo</SelectItem>
           <SelectItem value="audio">Audio</SelectItem>
@@ -78,7 +78,7 @@ export default function BarChart({ logoData, audioData }) {
             color: "hsl(var(--chart-3))",
           },
         }}
-        className="max-h-[40vh] w-full bg-card border rounded-lg pt-4 "
+        className="max-h-[40vh] w-full bg-white border rounded-lg pt-4 "
       >
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={filteredData}>

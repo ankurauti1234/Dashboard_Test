@@ -16,7 +16,7 @@ import TransformerDashboard from "@/components/tabs/dashboard/TransformerDashboa
 const Page = () => {
   return (
     <MainLayout>
-      <div className="p-6">
+      <>
         {/* Tabs for Overview, Live Charts, and Analytics */}
         <Tabs defaultValue="overview" className="w-full">
           <TabsList className="flex gap-2 w-fit bg-secondary rounded-full border">
@@ -32,17 +32,17 @@ const Page = () => {
             >
               Live Charts
             </TabsTrigger>
-            <TabsTrigger
+            {/* <TabsTrigger
               className="px-12 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               value="analytics"
             >
               Analytics
-            </TabsTrigger>
+            </TabsTrigger> */}
             <TabsTrigger
               className="px-12 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               value="transformer"
             >
-              Transformer
+              Analytics
             </TabsTrigger>
           </TabsList>
 
@@ -71,19 +71,18 @@ const Page = () => {
             <TabsContent value="liveCharts">
               <h1 className="text-xl font-bold">Live Charts</h1>
               <SensorData />
-              {/* <SPC device="device1" /> */}
             </TabsContent>
 
-            <TabsContent value="analytics">
+            {/* <TabsContent value="analytics">
               <h1 className="text-xl font-bold">Analytics</h1>
               <Analytics />
-            </TabsContent>
+            </TabsContent> */}
             <TabsContent value="transformer">
               <TransformerDashboard />
             </TabsContent>
           </div>
         </Tabs>
-      </div>
+      </>
     </MainLayout>
   );
 };

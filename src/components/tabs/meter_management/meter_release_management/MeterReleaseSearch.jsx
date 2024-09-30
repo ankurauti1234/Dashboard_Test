@@ -20,7 +20,7 @@ import {
 const initialData = [
   {
     id: 1,
-    meterId: "10001",
+    meterId: "100001",
     hhId: "HH001",
     appliedSwVersion: "v1.0.0",
     pushedSwVersion: "v1.0.1",
@@ -29,7 +29,7 @@ const initialData = [
   },
   {
     id: 2,
-    meterId: "10002",
+    meterId: "100002",
     hhId: "HH002",
     appliedSwVersion: "v1.0.1",
     pushedSwVersion: "v1.0.2",
@@ -38,7 +38,7 @@ const initialData = [
   },
   {
     id: 3,
-    meterId: "10003",
+    meterId: "100003",
     hhId: "HH003",
     appliedSwVersion: "v1.0.0",
     pushedSwVersion: "v1.0.1",
@@ -47,7 +47,7 @@ const initialData = [
   },
   {
     id: 4,
-    meterId: "10004",
+    meterId: "100004",
     hhId: "HH004",
     appliedSwVersion: "v1.0.2",
     pushedSwVersion: "v1.0.3",
@@ -56,7 +56,7 @@ const initialData = [
   },
   {
     id: 5,
-    meterId: "10005",
+    meterId: "100005",
     hhId: "HH005",
     appliedSwVersion: "v1.0.1",
     pushedSwVersion: "v1.0.2",

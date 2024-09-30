@@ -60,12 +60,10 @@ export default function MainLayout({ children }) {
           <Sidebar />
         </div>
         <div className="flex-1 flex flex-col overflow-hidden">
-          <main className="flex-1 overflow-y-auto overflow-x-hidden p-4">
+          <main className="flex-1 overflow-y-auto overflow-x-hidden px-8 py-0">
             <Toaster />
             <AlertDialog open={tokenExpired} onOpenChange={setTokenExpired}>
-              <AlertDialogTrigger>
-                <div />
-              </AlertDialogTrigger>
+              <AlertDialogTrigger></AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Token Expired</AlertDialogTitle>
@@ -82,6 +80,7 @@ export default function MainLayout({ children }) {
             </AlertDialog>
             {children}
           </main>
+          <div />
         </div>
       </div>
     </div>

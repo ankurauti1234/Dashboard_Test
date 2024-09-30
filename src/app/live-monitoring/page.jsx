@@ -86,146 +86,145 @@ function getRandomInt(min, max) {
 const dummyData = [
   {
     status: "online",
-    meterId: "MT001",
+    meterId: "100001",
     LogoAccuracy: 95,
     channelDetection: "Channel A",
     connectivityStatus: "connected",
     householdId: "HH001",
     householdStatus: "active",
     hardwareVersion: "v1.2",
-    network: "4G",
-    location: "New York",
-    latLon: "40.7128° N, 74.0060° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Airtel",
+    location: "Mumbai",
+    latLon: "19.0760° N, 72.8777° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
-    meterId: "MT002",
+    meterId: "100002",
     LogoAccuracy: 87,
     channelDetection: "Channel B",
     connectivityStatus: "disconnected",
     householdId: "HH002",
     householdStatus: "inactive",
     hardwareVersion: "v1.1",
-    network: "3G",
-    location: "Los Angeles",
-    latLon: "34.0522° N, 118.2437° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Jio",
+    location: "Delhi",
+    latLon: "28.7041° N, 77.1025° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
-    meterId: "MT003",
+    meterId: "100003",
     LogoAccuracy: 92,
     channelDetection: "Channel C",
     connectivityStatus: "connected",
     householdId: "HH003",
     householdStatus: "active",
     hardwareVersion: "v1.3",
-    network: "5G",
-    location: "Chicago",
-    latLon: "41.8781° N, 87.6298° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "VI",
+    location: "Bangalore",
+    latLon: "12.9716° N, 77.5946° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
-    meterId: "MT004",
+    meterId: "100004",
     LogoAccuracy: 89,
     channelDetection: "Channel D",
     connectivityStatus: "connected",
     householdId: "HH004",
     householdStatus: "active",
     hardwareVersion: "v1.2",
-    network: "4G",
-    location: "Houston",
-    latLon: "29.7604° N, 95.3698° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Airtel",
+    location: "Hyderabad",
+    latLon: "17.3850° N, 78.4867° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
-    meterId: "MT005",
+    meterId: "100005",
     LogoAccuracy: 85,
     channelDetection: "Channel E",
     connectivityStatus: "disconnected",
     householdId: "HH005",
     householdStatus: "inactive",
     hardwareVersion: "v1.1",
-    network: "3G",
-    location: "Phoenix",
-    latLon: "33.4484° N, 112.0740° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Jio",
+    location: "Ahmedabad",
+    latLon: "23.0225° N, 72.5714° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
-    meterId: "MT006",
+    meterId: "100006",
     LogoAccuracy: 93,
     channelDetection: "Channel F",
     connectivityStatus: "connected",
     householdId: "HH006",
     householdStatus: "active",
     hardwareVersion: "v1.3",
-    network: "5G",
-    location: "Philadelphia",
-    latLon: "39.9526° N, 75.1652° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "VI",
+    location: "Chennai",
+    latLon: "13.0827° N, 80.2707° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
-    meterId: "MT007",
+    meterId: "100007",
     LogoAccuracy: 88,
     channelDetection: "Channel G",
     connectivityStatus: "disconnected",
     householdId: "HH007",
     householdStatus: "inactive",
     hardwareVersion: "v1.2",
-    network: "4G",
-    location: "San Antonio",
-    latLon: "29.4241° N, 98.4936° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Airtel",
+    location: "Kolkata",
+    latLon: "22.5726° N, 88.3639° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
-    meterId: "MT008",
+    meterId: "100008",
     LogoAccuracy: 96,
     channelDetection: "Channel H",
     connectivityStatus: "connected",
     householdId: "HH008",
     householdStatus: "active",
     hardwareVersion: "v1.4",
-    network: "5G",
-    location: "San Diego",
-    latLon: "32.7157° N, 117.1611° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "VI",
+    location: "Pune",
+    latLon: "18.5204° N, 73.8567° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
-    meterId: "MT009",
+    meterId: "100009",
     LogoAccuracy: 84,
     channelDetection: "Channel I",
     connectivityStatus: "disconnected",
     householdId: "HH009",
     householdStatus: "inactive",
     hardwareVersion: "v1.1",
-    network: "3G",
-    location: "Dallas",
-    latLon: "32.7767° N, 96.7970° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Jio",
+    location: "Jaipur",
+    latLon: "26.9124° N, 75.7873° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
-    meterId: "MT010",
+    meterId: "1000010",
     LogoAccuracy: 90,
     channelDetection: "Channel J",
     connectivityStatus: "connected",
     householdId: "HH010",
     householdStatus: "active",
     hardwareVersion: "v1.3",
-    network: "4G",
-    location: "San Jose",
-    latLon: "37.3382° N, 121.8863° W",
-    avatarId: getRandomInt(1, 100000).toString()
+    network: "Airtel",
+    location: "Surat",
+    latLon: "21.1702° N, 72.8311° E",
+    avatarId: getRandomInt(1, 100000).toString(),
   },
 ];
-
 
 // Update the column definitions
 export const columns = [
@@ -474,37 +473,37 @@ function Page() {
   const pageSize = 5;
   const pageCount = Math.ceil(filteredData.length / pageSize);
 
-const table = useReactTable({
-  data: filteredData.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
-  columns,
-  onSortingChange: setSorting,
-  onColumnFiltersChange: setColumnFilters,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  onColumnVisibilityChange: setColumnVisibility,
-  onRowSelectionChange: setRowSelection,
-  state: {
-    sorting,
-    columnFilters,
-    columnVisibility,
-    rowSelection,
-  },
-  manualPagination: true,
-  pageCount: pageCount,
-});
-
-const handleSearch = () => {
-  const filtered = data.filter((item) => {
-    return Object.entries(searchFilters).every(([key, value]) => {
-      if (!value) return true;
-      return item[key].toLowerCase().includes(value.toLowerCase());
-    });
+  const table = useReactTable({
+    data: filteredData.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
+    columns,
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      rowSelection,
+    },
+    manualPagination: true,
+    pageCount: pageCount,
   });
-  setFilteredData(filtered);
-  setPageIndex(0);
-};
+
+  const handleSearch = () => {
+    const filtered = data.filter((item) => {
+      return Object.entries(searchFilters).every(([key, value]) => {
+        if (!value) return true;
+        return item[key].toLowerCase().includes(value.toLowerCase());
+      });
+    });
+    setFilteredData(filtered);
+    setPageIndex(0);
+  };
 
   const handleCancelSearch = () => {
     setSearchFilters({});
@@ -513,13 +512,12 @@ const handleSearch = () => {
     table.resetColumnFilters();
   };
 
-
-React.useEffect(() => {
-  const start = pageIndex * pageSize;
-  const end = start + pageSize;
-  table.setPageSize(pageSize);
-  table.setPageIndex(0);
-}, [pageIndex, filteredData]);
+  React.useEffect(() => {
+    const start = pageIndex * pageSize;
+    const end = start + pageSize;
+    table.setPageSize(pageSize);
+    table.setPageIndex(0);
+  }, [pageIndex, filteredData]);
 
   const filteredDevices = table
     .getFilteredRowModel()

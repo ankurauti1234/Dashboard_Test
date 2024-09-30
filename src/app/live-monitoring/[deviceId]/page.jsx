@@ -64,7 +64,7 @@ const DevicePage = () => {
           <Button
             variant="outline"
             onClick={handleGoBack}
-            className="mr-4 w-fit"
+            className="mr-4 w-fit bg-white rounded-xl"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -75,7 +75,7 @@ const DevicePage = () => {
           <div className="w-1/2 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 shadow-inner shadow-accent/50 border p-2 rounded-lg ">
             <h1 className="text-xl font-medium mb-2">Logo Detection Output</h1>
 
-            <div className="max-h-[40vh] w-full overflow-hidden bg-card rounded-lg border">
+            <div className="max-h-[40vh] w-full overflow-hidden bg-white rounded-lg border">
               <Table>
                 <TableHeader>
                   <TableRow className="flex w-full justify-between items-center ">
@@ -105,7 +105,7 @@ const DevicePage = () => {
           </div>
           <div className="w-1/2 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 shadow-inner shadow-accent/50 border p-2 rounded-lg">
             <h1 className="text-xl font-medium mb-2">Audio Detection Output</h1>
-            <div className="max-h-[40vh] w-full overflow-hidden bg-card rounded-lg border">
+            <div className="max-h-[40vh] w-full overflow-hidden bg-white rounded-lg border">
               <Table>
                 <TableHeader>
                   <TableRow className="flex w-full justify-between items-center">

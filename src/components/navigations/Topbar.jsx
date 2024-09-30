@@ -42,7 +42,7 @@ const Topbar = () => {
   };
 
   return (
-    <div className="p-3 bg-white border-b flex items-center justify-between">
+    <div className="px-2 py-1 bg-white border-b flex items-center justify-between">
       <Image src="/assets/images/logo.png" alt="logo" width={150} height={18} />
 
       <div className="flex items-center space-x-4">

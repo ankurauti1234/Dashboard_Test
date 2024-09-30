@@ -31,7 +31,7 @@ const data = [
   {
     testMeterId: "100001",
     testMeterVersion: "v1.0.2",
-    conflictMeterId: "100010",
+    conflictMeterId: "1000010",
     conflictMeterVersion: "v2.3.1",
     conflictingComponent: "Power Module",
     createdOn: "2024-03-12",
@@ -41,7 +41,7 @@ const data = [
   {
     testMeterId: "100002",
     testMeterVersion: "v1.1.0",
-    conflictMeterId: "100015",
+    conflictMeterId: "1000015",
     conflictMeterVersion: "v2.4.0",
     conflictingComponent: "Display Unit",
     createdOn: "2024-03-14",
@@ -51,7 +51,7 @@ const data = [
   {
     testMeterId: "100003",
     testMeterVersion: "v1.2.1",
-    conflictMeterId: "100021",
+    conflictMeterId: "1000021",
     conflictMeterVersion: "v2.5.2",
     conflictingComponent: "Communication Module",
     createdOn: "2024-03-15",
@@ -71,7 +71,7 @@ const data = [
   {
     testMeterId: "100005",
     testMeterVersion: "v1.3.0",
-    conflictMeterId: "100012",
+    conflictMeterId: "1000012",
     conflictMeterVersion: "v2.6.1",
     conflictingComponent: "Sensor Array",
     createdOn: "2024-03-16",
