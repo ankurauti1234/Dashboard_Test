@@ -183,7 +183,7 @@ export const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(meter.meterId)}
             >
-              Copy Meter ID
+              Copy Device ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
@@ -261,7 +261,7 @@ function MasterData_Meter() {
                 <CardContent>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     <div className="flex flex-col space-y-2">
-                      <Label htmlFor="meterId">Meter ID</Label>
+                      <Label htmlFor="meterId">Device ID</Label>
                       <Input type="text" id="meterId" placeholder="M100001" />
                     </div>
                     <div className="flex flex-col space-y-2">

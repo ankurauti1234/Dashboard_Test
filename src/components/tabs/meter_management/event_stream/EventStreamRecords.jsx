@@ -9,6 +9,8 @@ import {
   Search,
   ArrowLeft,
   Download,
+  RefreshCw,
+  Filter, // Import the Refresh icon
 } from "lucide-react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -67,7 +69,7 @@ export default function EventStreamRecords() {
 
   const fetchEventData = async () => {
     try {
-      let url = `https://apmapis.webdevava.live/api/events?page=${currentPage}&limit=${limit}`;
+      let url = `${process.env.NEXT_PUBLIC_API_URL}/events?page=${currentPage}&limit=${limit}`;
 
       Object.entries(searchParams).forEach(([key, value]) => {
         if (value) {
@@ -123,6 +125,11 @@ export default function EventStreamRecords() {
     setFilterDateTo(null);
     setCurrentPage(1);
     setSearchParams({});
+  };
+
+  // Function to handle refresh button click
+  const handleRefresh = () => {
+    fetchEventData();
   };
 
   const handleGoBack = () => {
@@ -209,7 +216,7 @@ export default function EventStreamRecords() {
             <div className="flex items-center gap-4">
               <div className="flex-1 flex items-center max-w-96 rounded-full bg-background">
                 <Input
-                  placeholder="Search Meters..."
+                  placeholder="Search Devices..."
                   value={searchDeviceId}
                   onChange={(e) => setSearchDeviceId(e.target.value)}
                   className=" rounded-full border-none"
@@ -221,9 +228,12 @@ export default function EventStreamRecords() {
 
               <Popover>
                 <PopoverTrigger asChild>
-                  <Button variant="outline">
-                    <Search className="h-4 w-4 mr-2" />
-                    Advanced Search
+                  <Button
+                    variant="ghost"
+                    className="bg-background rounded-full"
+                  >
+                    <Filter className="h-4 w-4 mr-2" />
+                    Search By Filter
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-96">
@@ -312,6 +322,15 @@ export default function EventStreamRecords() {
                   </div>
                 </PopoverContent>
               </Popover>
+
+              {/* Refresh button */}
+              <Button
+                onClick={handleRefresh}
+                variant="outline"
+                className="rounded-full p-2 size-10"
+              >
+                <RefreshCw className="h-8 w-8" />
+              </Button>
             </div>
 
             <div className="flex gap-1 items-center">

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -83,14 +83,14 @@ const MeterReleaseHistory = () => {
           type="text"
           placeholder="Search..."
           value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="max-w-72"
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="max-w-72"
         />
         <Button onClick={handleSearch}>Search</Button>
       </div>
 
       <Table>
-        <TableCaption>Meter Release History</TableCaption>
+        <TableCaption>Device Release History</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>HH ID</TableHead>

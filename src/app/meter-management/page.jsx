@@ -27,7 +27,6 @@ const MeterManagementPage = () => {
   const [activeAlarmsTab, setActiveAlarmsTab] = useState("fieldAlarms");
   const [loading, setLoading] = useState(false);
 
-
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -48,21 +47,21 @@ const MeterManagementPage = () => {
           <Tabs defaultValue="records" className="w-full">
             <TabsList className="bg-transparent rounded-none p-0 ">
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="records"
                 onClick={() => setActiveEventsStreamTab("records")}
               >
                 Records
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="plot"
                 onClick={() => setActiveEventsStreamTab("plot")}
               >
                 Plot
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="retrievalRequest"
                 onClick={() => setActiveEventsStreamTab("retrievalRequest")}
               >
@@ -88,21 +87,21 @@ const MeterManagementPage = () => {
           <Tabs defaultValue="fieldAlarms" className="w-full">
             <TabsList className="bg-transparent rounded-none p-0 ">
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="fieldAlarms"
                 onClick={() => setActiveAlarmsTab("fieldAlarms")}
               >
                 Field Alarms
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="derived"
                 onClick={() => setActiveAlarmsTab("derived")}
               >
                 Derived Alarms
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="configurations"
                 onClick={() => setActiveAlarmsTab("configurations")}
               >
@@ -128,14 +127,14 @@ const MeterManagementPage = () => {
           <Tabs defaultValue="viewUpdate" className="w-full">
             <TabsList className="bg-transparent rounded-none p-0 ">
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="viewUpdate"
                 onClick={() => setActiveConfigUpdateTab("viewUpdate")}
               >
                 View & Update
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="history"
                 onClick={() => setActiveConfigUpdateTab("history")}
               >
@@ -158,28 +157,28 @@ const MeterManagementPage = () => {
           <Tabs defaultValue="search" className="w-full">
             <TabsList className="bg-transparent rounded-none p-0 ">
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="search"
                 onClick={() => setActiveMeterReleaseTab("search")}
               >
                 Search
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="history"
                 onClick={() => setActiveMeterReleaseTab("history")}
               >
                 History
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="submitJob"
                 onClick={() => setActiveMeterReleaseTab("submitJob")}
               >
                 Submit Job
               </TabsTrigger>
               <TabsTrigger
-                 className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
+                className="    rounded-none data-[state=active]:font-semibold border-b data-[state=active]:border-primary data-[state=active]:bg-white data-[state=active]:border-b-2"
                 value="viewJob"
                 onClick={() => setActiveMeterReleaseTab("viewJob")}
               >
@@ -215,7 +214,7 @@ const MeterManagementPage = () => {
   return (
     <MainLayout>
       <div>
-        {/* <h1 className="text-2xl font-bold mb-6">Meter Management</h1> */}
+        {/* <h1 className="text-2xl font-bold mb-6">Device Management</h1> */}
         <Tabs defaultValue="eventsStream" className="w-full">
           <div className="overflow-x-auto">
             <TabsList className=" w-full justify-between gap-2 bg-secondary rounded-full border">

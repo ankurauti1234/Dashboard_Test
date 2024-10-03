@@ -4,7 +4,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
-    ArrowLeft,
+  ArrowLeft,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -60,7 +60,7 @@ const Sidebar = () => {
       icon: <Radio size={20} />,
     },
     {
-      label: "Meter Management",
+      label: "Device Management",
       path: "/meter-management",
       icon: <Gauge size={20} />,
     },

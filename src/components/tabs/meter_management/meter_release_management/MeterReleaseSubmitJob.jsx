@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,16 +33,16 @@ const MeterReleaseSubmitJob = () => {
   return (
     <Card className=" mx-auto bg-white">
       <CardHeader>
-        <CardTitle>Submit Meter Release Job</CardTitle>
+        <CardTitle>Submit Device Release Job</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex gap-6 items-center">
             <div className="space-y-2">
-              <Label htmlFor="meterId">Meter ID</Label>
+              <Label htmlFor="meterId">Device ID</Label>
               <Input
                 id="meterId"
-                placeholder="Enter Meter ID"
+                placeholder="Enter Device ID"
                 value={meterId}
                 onChange={(e) => setMeterId(e.target.value)}
               />

@@ -34,11 +34,25 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "https://apmapis.webdevava.live/api";
 
-const SearchUser = ({ onEditUserRole }) => {
+const SearchUser = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [searchName, setSearchName] = useState("");
@@ -51,6 +65,9 @@ const SearchUser = ({ onEditUserRole }) => {
     company: "",
   });
   const [userToDelete, setUserToDelete] = useState(null);
+  const [userToEdit, setUserToEdit] = useState(null);
+  const [newRole, setNewRole] = useState("");
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
   useEffect(() => {
     fetchUsers();
@@ -121,6 +138,32 @@ const SearchUser = ({ onEditUserRole }) => {
       toast.error("An error occurred while deleting the user.");
     } finally {
       setUserToDelete(null);
+    }
+  };
+
+  const handleEditUserRole = async () => {
+    if (!userToEdit || !newRole) return;
+
+    try {
+      const token = Cookies.get("token");
+      const response = await fetch(`${API_URL}/users/${userToEdit._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ role: newRole }),
+      });
+      if (!response.ok) throw new Error("Failed to update user role");
+      toast.success("User role updated successfully");
+      fetchUsers();
+      setIsEditDialogOpen(false);
+    } catch (error) {
+      console.error("Error updating user role:", error);
+      toast.error("An error occurred while updating the user role.");
+    } finally {
+      setUserToEdit(null);
+      setNewRole("");
     }
   };
 
@@ -213,14 +256,50 @@ const SearchUser = ({ onEditUserRole }) => {
                   <TableCell>{user.role}</TableCell>
                   <TableCell>{user.employeeId}</TableCell>
                   <TableCell>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="mr-2"
-                      onClick={() => onEditUserRole(user)}
+                    <Dialog
+                      open={isEditDialogOpen}
+                      onOpenChange={setIsEditDialogOpen}
                     >
-                      Edit Role
-                    </Button>
+                      <DialogTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="mr-2"
+                          onClick={() => {
+                            setUserToEdit(user);
+                            setNewRole(user.role);
+                          }}
+                        >
+                          Edit Role
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Edit User Role</DialogTitle>
+                        </DialogHeader>
+                        <div className="py-4">
+                          <Label htmlFor="role">Select new role</Label>
+                          <Select
+                            value={newRole}
+                            onValueChange={(value) => setNewRole(value)}
+                          >
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select a role" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Admin">Admin</SelectItem>
+                              <SelectItem value="Moderator">
+                                Moderator
+                              </SelectItem>
+                              <SelectItem value="Visitor">Visitor</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <Button onClick={handleEditUserRole}>
+                          Update Role
+                        </Button>
+                      </DialogContent>
+                    </Dialog>
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
                         <Button

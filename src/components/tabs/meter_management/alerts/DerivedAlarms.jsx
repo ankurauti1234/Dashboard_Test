@@ -110,7 +110,7 @@ const DerivedAlarms = () => {
     <div className="w-full p-2 bg-white rounded-lg border">
       <div className="flex items-center mb-4">
         <Input
-          placeholder="Search Meter ID..."
+          placeholder="Search Device ID..."
           value={globalFilter ?? ""}
           onChange={(e) => setGlobalFilter(e.target.value)}
           className="max-w-sm mr-2"

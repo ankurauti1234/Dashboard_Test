@@ -90,7 +90,7 @@ export default function UninstallationComponent() {
     <div className="w-full p-2 bg-white rounded-lg border">
       <div className="flex-1 flex items-center max-w-96 rounded-full bg-background mb-2">
         <Input
-          placeholder="Search Meter Id..."
+          placeholder="Search Device ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="max-w-sm rounded-full border-none"

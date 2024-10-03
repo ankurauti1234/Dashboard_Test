@@ -100,7 +100,7 @@ export const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(meter.meterId)}
             >
-              Copy Meter ID
+              Copy Device ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
@@ -115,7 +115,6 @@ function FieldActivity_Meter() {
   const [loading, setLoading] = React.useState(false);
   const [searchTerm, setSearchTerm] = React.useState("");
   const [filteredData, setFilteredData] = React.useState([]);
-
 
   const handleSearch = () => {
     const filtered = data.filter((item) =>
@@ -147,7 +146,7 @@ function FieldActivity_Meter() {
     <div className="w-full p-2 bg-white rounded-lg border">
       <div className="flex-1 flex items-center max-w-96 rounded-full bg-background mb-2">
         <Input
-          placeholder="Search Meter Id..."
+          placeholder="Search Device ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="max-w-sm rounded-full border-none"

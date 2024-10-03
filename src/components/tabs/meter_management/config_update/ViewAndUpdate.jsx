@@ -156,7 +156,7 @@ const ViewAndUpdate = () => {
     <div className="w-full p-2 bg-white rounded-lg border">
       <div className="flex items-center mb-4">
         <Input
-          placeholder="Search Meter ID..."
+          placeholder="Search Device ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="max-w-sm mr-2"
@@ -247,7 +247,7 @@ const ViewAndUpdate = () => {
             </DialogHeader>
             <div>
               <p>
-                <strong>Meter ID:</strong> {viewDetails.meterId}
+                <strong>Device ID:</strong> {viewDetails.meterId}
               </p>
               <p>
                 <strong>Current Config:</strong> {viewDetails.config}

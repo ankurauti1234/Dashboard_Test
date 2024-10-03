@@ -137,7 +137,7 @@ const RetrievalRequest = () => {
     },
     {
       accessorKey: "meterId",
-      header: "Meter ID",
+      header: "Device ID",
     },
     {
       accessorKey: "hhId",
@@ -194,7 +194,7 @@ const RetrievalRequest = () => {
       <div className="flex items-center mb-4">
         <div className="flex-1 flex items-center max-w-96 rounded-full bg-background">
           <Input
-            placeholder="Search Meters..."
+            placeholder="Search Devices..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className=" rounded-full border-none"

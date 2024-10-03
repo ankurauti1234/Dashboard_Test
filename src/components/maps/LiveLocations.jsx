@@ -87,7 +87,7 @@ const LiveLocations = ({ devices }) => {
           >
             <Popup>
               <div>
-                <strong>Meter ID:</strong> {device.meterId}
+                <strong>Device ID:</strong> {device.meterId}
                 <br />
                 <strong>Status:</strong> {device.status}
                 <br />

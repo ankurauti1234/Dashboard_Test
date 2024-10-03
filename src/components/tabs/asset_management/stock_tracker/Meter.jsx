@@ -194,7 +194,7 @@ export const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(meter.meterId)}
             >
-              Copy Meter ID
+              Copy Device ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
@@ -280,7 +280,7 @@ function Meter() {
         <div className="flex gap-4 items-center">
           <div className="flex-1 flex items-center max-w-96 rounded-full bg-background">
             <Input
-              placeholder="Search Meters..."
+              placeholder="Search Devices..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className=" rounded-full border-none"
@@ -383,7 +383,7 @@ function Meter() {
               variant="outline"
               className="rounded-full size-9 p-0"
             >
-              <RefreshCw  />
+              <RefreshCw />
             </Button>
           </div>
         </div>

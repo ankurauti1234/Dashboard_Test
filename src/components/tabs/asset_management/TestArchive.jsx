@@ -101,7 +101,7 @@ const columns = [
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <span className="font-bold">Meter ID:</span>
+              <span className="font-bold">Device ID:</span>
               <span className="col-span-3">{row.getValue("meterId")}</span>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
@@ -148,7 +148,7 @@ const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(meter.meterId)}
             >
-              Copy Meter ID
+              Copy Device ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
@@ -180,7 +180,7 @@ export default function TestArchive() {
     <div className="w-full p-2 bg-white rounded-lg border">
       <div className="flex-1 flex items-center max-w-96 rounded-full bg-background mb-2">
         <Input
-          placeholder="Search Meter Id..."
+          placeholder="Search Device ID..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="max-w-sm rounded-full border-none"

@@ -270,7 +270,7 @@ export const columns = [
   },
   {
     accessorKey: "meterId",
-    header: "Meter ID",
+    header: "Device ID",
     cell: ({ row }) => {
       const router = useRouter();
 
@@ -450,7 +450,7 @@ export const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(meter.meterId)}
             >
-              Copy Meter ID
+              Copy Device ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>View details</DropdownMenuItem>
@@ -534,7 +534,7 @@ function Page() {
           <div className="flex items-center py-2 gap-2">
             <div className="flex bg-accent rounded-full">
               <Input
-                placeholder="Search Meters by Meter Id..."
+                placeholder="Search Devices by Device ID..."
                 value={searchFilters.meterId || ""}
                 onChange={(event) =>
                   setSearchFilters((prev) => ({

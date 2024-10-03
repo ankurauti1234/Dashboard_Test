@@ -49,7 +49,7 @@ const Plot = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card className="bg-white">
           <CardHeader>
-            <CardTitle>Meter Events</CardTitle>
+            <CardTitle>Device Events</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>

@@ -113,7 +113,7 @@ const MeterReleaseSearch = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem onClick={() => handleFilter("meterId")}>
-              Meter ID
+              Device ID
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => handleFilter("hhId")}>
               HH ID
@@ -138,7 +138,7 @@ const MeterReleaseSearch = () => {
       </div>
 
       <Table>
-        <TableCaption>Meter Release Data</TableCaption>
+        <TableCaption>Device Release Data</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead>Device ID</TableHead>

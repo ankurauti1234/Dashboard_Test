@@ -47,11 +47,15 @@ const Topbar = () => {
 
       <div className="flex items-center space-x-4">
         <Button variant="ghost" size="icon">
+          <Bell className="h-5 w-5" />
+        </Button>
+
+        <Button variant="ghost" size="icon">
           <Search className="h-5 w-5" />
         </Button>
         <DropdownMenu className="bg-white">
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="w-[80px] bg-white">
+          <DropdownMenuTrigger asChild className="">
+            <Button variant="ghost" className=" rounded-full bg-background py-0">
               {country} <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -65,10 +69,6 @@ const Topbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Button variant="ghost" size="icon">
-          <Bell className="h-5 w-5" />
-        </Button>
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="flex items-center space-x-2">
@@ -80,7 +80,7 @@ const Topbar = () => {
               <span>{name || "User"}</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent align="end" className="bg-white">
             <DropdownMenuItem onClick={() => router.push("/settings")}>
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
