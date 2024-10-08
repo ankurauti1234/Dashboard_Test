@@ -96,7 +96,7 @@ const dummyData = [
     network: "Airtel",
     location: "Mumbai",
     latLon: "19.0760° N, 72.8777° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
@@ -110,7 +110,7 @@ const dummyData = [
     network: "Jio",
     location: "Delhi",
     latLon: "28.7041° N, 77.1025° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
@@ -124,7 +124,7 @@ const dummyData = [
     network: "VI",
     location: "Bangalore",
     latLon: "12.9716° N, 77.5946° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
@@ -138,7 +138,7 @@ const dummyData = [
     network: "Airtel",
     location: "Hyderabad",
     latLon: "17.3850° N, 78.4867° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
@@ -152,7 +152,7 @@ const dummyData = [
     network: "Jio",
     location: "Ahmedabad",
     latLon: "23.0225° N, 72.5714° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
@@ -166,7 +166,7 @@ const dummyData = [
     network: "VI",
     location: "Chennai",
     latLon: "13.0827° N, 80.2707° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
@@ -180,7 +180,7 @@ const dummyData = [
     network: "Airtel",
     location: "Kolkata",
     latLon: "22.5726° N, 88.3639° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
@@ -194,7 +194,7 @@ const dummyData = [
     network: "VI",
     location: "Pune",
     latLon: "18.5204° N, 73.8567° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "offline",
@@ -208,7 +208,7 @@ const dummyData = [
     network: "Jio",
     location: "Jaipur",
     latLon: "26.9124° N, 75.7873° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
   {
     status: "online",
@@ -222,7 +222,7 @@ const dummyData = [
     network: "Airtel",
     location: "Surat",
     latLon: "21.1702° N, 72.8311° E",
-    avatarId: getRandomInt(1, 100000).toString(),
+    logoID: getRandomInt(1, 100000).toString(),
   },
 ];
 
@@ -238,7 +238,7 @@ export const columns = [
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        className=""
+        className="rounded-sm"
       />
     ),
     cell: ({ row }) => (
@@ -246,6 +246,7 @@ export const columns = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        className="rounded-sm"
       />
     ),
     enableSorting: false,
@@ -258,13 +259,11 @@ export const columns = [
       const status = row.getValue("status").toLowerCase();
       const statusClass =
         status === "online"
-          ? "bg-green-500 text-white"
-          : "bg-red-500 text-white";
+          ? "bg-emerald-500 text-emerald-500 ring-emerald-500/30"
+          : "bg-rose-500 text-rose-500 ring-rose-500/30";
 
       return (
-        <div
-          className={`capitalize h-0 w-0 p-2 rounded-full  ${statusClass}`}
-        ></div>
+        <div className={`h-2 w-2 rounded-full ring-2 ${statusClass}`}></div>
       );
     },
   },
@@ -273,35 +272,34 @@ export const columns = [
     header: "Device ID",
     cell: ({ row }) => {
       const router = useRouter();
-
       const handleClick = () => {
         router.push(`/live-monitoring/${row.getValue("meterId")}`);
       };
 
       return (
         <div
-          className="flex gap-2 items-center bg-secondary p-1 rounded-full pl-2 cursor-pointer"
+          className="flex items-center gap-2 bg-secondary/50 hover:bg-secondary/70 transition-colors p-1.5 rounded-full pl-3 cursor-pointer text-sm font-medium"
           onClick={handleClick}
         >
-          {row.getValue("meterId")} <ChevronRight size={16} />
+          {row.getValue("meterId")}{" "}
+          <ChevronRight className="h-4 w-4 opacity-50" />
         </div>
       );
     },
   },
-
   {
     accessorKey: "channelDetection",
     header: "Channel Detection",
     cell: ({ row }) => (
       <Dialog>
         <DialogTrigger>
-          <div className="capitalize flex items-center gap-2 bg-accent rounded-full w-48 p-1">
+          <div className="flex items-center gap-2 bg-accent/50 hover:bg-accent/70 transition-colors rounded-full w-48 p-1">
             <img
-              src={`https://avatars.githubusercontent.com/u/${row.original.avatarId}`}
+              src={`https://avatars.githubusercontent.com/u/${row.original.logoID}`}
               alt="img"
-              className="size-10 rounded-full aspect-square"
+              className="size-8 rounded-full aspect-square object-cover"
             />
-            <span className="truncate text-ellipsis">
+            <span className="truncate text-ellipsis text-sm font-medium">
               {row.getValue("channelDetection")}
             </span>
           </div>
@@ -312,7 +310,7 @@ export const columns = [
               <div className="capitalize flex items-center justify-between gap-2 my-2">
                 <div className="flex items-center gap-2">
                   <img
-                    src={`https://avatars.githubusercontent.com/u/${row.original.avatarId}`}
+                    src={`https://avatars.githubusercontent.com/u/${row.original.logoID}`}
                     alt="img"
                     className="size-16 rounded-full aspect-square"
                   />
@@ -375,12 +373,12 @@ export const columns = [
         .toLowerCase();
       const connectivityClass =
         connectivityStatus === "connected"
-          ? "bg-blue-500 text-white"
-          : "bg-gray-500 text-white";
+          ? "bg-sky-500/20 text-sky-500"
+          : "bg-gray-500/20 text-gray-500";
 
       return (
         <div
-          className={`capitalize p-1 rounded-full text-center ${connectivityClass}`}
+          className={`px-2.5 py-1 rounded-full text-center text-xs font-semibold ${connectivityClass}`}
         >
           {connectivityStatus}
         </div>
@@ -390,7 +388,9 @@ export const columns = [
   {
     accessorKey: "householdId",
     header: "Household ID",
-    cell: ({ row }) => <div>{row.getValue("householdId")}</div>,
+    cell: ({ row }) => (
+      <div className="text-sm font-medium">{row.getValue("householdId")}</div>
+    ),
   },
   {
     accessorKey: "householdStatus",
@@ -399,12 +399,12 @@ export const columns = [
       const householdStatus = row.getValue("householdStatus").toLowerCase();
       const householdClass =
         householdStatus === "active"
-          ? "bg-yellow-500 text-white"
-          : "bg-gray-500 text-white";
+          ? "bg-amber-500/20 text-amber-500"
+          : "bg-gray-500/20 text-gray-500";
 
       return (
         <div
-          className={`capitalize p-1 rounded-full text-center ${householdClass}`}
+          className={`px-2.5 py-1 rounded-full text-center text-xs font-semibold ${householdClass}`}
         >
           {householdStatus}
         </div>
@@ -431,34 +431,34 @@ export const columns = [
     header: "Lat & Lon",
     cell: ({ row }) => <div className="w-32">{row.getValue("latLon")}</div>,
   },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const meter = row.original;
+  // {
+  //   id: "actions",
+  //   enableHiding: false,
+  //   cell: ({ row }) => {
+  //     const meter = row.original;
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <Ellipsis className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(meter.meterId)}
-            >
-              Copy Device ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    },
-  },
+  //     return (
+  //       <DropdownMenu>
+  //         <DropdownMenuTrigger asChild>
+  //           <Button variant="ghost" className="h-8 w-8 p-0">
+  //             <span className="sr-only">Open menu</span>
+  //             <Ellipsis className="h-4 w-4" />
+  //           </Button>
+  //         </DropdownMenuTrigger>
+  //         <DropdownMenuContent align="end">
+  //           <DropdownMenuLabel>Actions</DropdownMenuLabel>
+  //           <DropdownMenuItem
+  //             onClick={() => navigator.clipboard.writeText(meter.meterId)}
+  //           >
+  //             Copy Device ID
+  //           </DropdownMenuItem>
+  //           <DropdownMenuSeparator />
+  //           <DropdownMenuItem>View details</DropdownMenuItem>
+  //         </DropdownMenuContent>
+  //       </DropdownMenu>
+  //     );
+  //   },
+  // },
 ];
 
 function Page() {
@@ -525,12 +525,12 @@ function Page() {
 
   return (
     <MainLayout>
-      <div className="w-full h-full flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+      <div className=" w-full h-full flex flex-1 flex-col gap-4 md:gap-8">
         <div className="w-full h-full">
           <h1 className="text-2xl font-bold">Live Monitoring</h1>
           <LiveLocations devices={filteredDevices} />
         </div>
-        <div className="top-50 w-full p-2 bg-white rounded-lg">
+        <div className="  p-2 bg-white rounded-lg w-full ">
           <div className="flex items-center py-2 gap-2">
             <div className="flex bg-accent rounded-full">
               <Input
@@ -675,21 +675,25 @@ function Page() {
           </div>
           <div className="rounded-md border z-0 bg-white">
             <Table>
-              <TableHeader className="bg-card">
+              <TableHeader>
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
-                    {headerGroup.headers.map((header) => {
-                      return (
-                        <TableHead key={header.id}>
-                          {header.isPlaceholder
-                            ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
-                        </TableHead>
-                      );
-                    })}
+                  <TableRow
+                    key={headerGroup.id}
+                    className="bg-gray-50/50 hover:bg-gray-50/50"
+                  >
+                    {headerGroup.headers.map((header) => (
+                      <TableHead
+                        key={header.id}
+                        className="h-11 px-4 text-xs font-semibold text-gray-600 bg-transparent first:pl-6 last:pr-6"
+                      >
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </TableHead>
+                    ))}
                   </TableRow>
                 ))}
               </TableHeader>
@@ -699,9 +703,13 @@ function Page() {
                     <TableRow
                       key={row.id}
                       data-state={row.getIsSelected() && "selected"}
+                      className="hover:bg-gray-50/50 [&:not(:last-child)]:border-b transition-colors"
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id}>
+                        <TableCell
+                          key={cell.id}
+                          className="p-4 first:pl-6 last:pr-6"
+                        >
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
@@ -714,7 +722,7 @@ function Page() {
                   <TableRow>
                     <TableCell
                       colSpan={columns.length}
-                      className="h-24 text-center"
+                      className="h-24 text-center text-sm text-gray-500"
                     >
                       No results.
                     </TableCell>

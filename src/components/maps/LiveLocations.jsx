@@ -43,12 +43,12 @@ const LiveLocations = ({ devices }) => {
   // Create custom marker icons
   const onlineIcon = L.divIcon({
     className: "custom-marker-icon",
-    html: '<div class="bg-green-500 rounded-full w-6 h-6 flex items-center justify-center shadow-md"></div>',
+    html: '<div class="bg-emerald-500 text-emerald-500 ring-emerald-500/30 rounded-full w-4 h-4 flex items-center justify-center shadow-md"></div>',
   });
 
   const offlineIcon = L.divIcon({
     className: "custom-marker-icon",
-    html: '<div class="bg-red-500 rounded-full w-6 h-6 flex items-center justify-center shadow-md"></div>',
+    html: '<div class="bg-rose-500 text-rose-500 ring-rose-500/30 rounded-full w-4 h-4 flex items-center justify-center shadow-md"></div>',
   });
 
   return (

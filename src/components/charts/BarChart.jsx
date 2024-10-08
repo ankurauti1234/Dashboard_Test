@@ -1,187 +1,207 @@
 "use client";
 
+import { useState } from "react";
 import {
   Bar,
-  BarChart as RechartsBarChart,
+  Line,
+  ComposedChart,
   ResponsiveContainer,
   XAxis,
   YAxis,
   Tooltip,
   Legend,
-  Line,
-  ComposedChart,
-  Area,
 } from "recharts";
-import { ChartContainer } from "@/components/ui/chart";
-import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Calendar, EllipsisVertical } from "lucide-react";
 
-export default function BarChart({ logoData, audioData }) {
-  const [filter, setFilter] = useState("all");
+export default function Component({ logoData, audioData }) {
+  const [activeChart, setActiveChart] = useState("all");
+  const [timeRange, setTimeRange] = useState("Day");
 
-  // Combine and process the data
   const chartData = logoData.map((logo, index) => {
     const audioConfidence = audioData[index]?.confidence || 0;
     const averageConfidence = (logo.confidence + audioConfidence) / 2;
     return {
-      timestamp: new Date(logo.ts).toLocaleTimeString(),
-      logoConfidence: logo.confidence,
-      audioConfidence: audioConfidence,
-      averageConfidence: averageConfidence,
+      timestamp: new Date(logo.ts).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+      logoConfidence: logo.confidence * 100,
+      audioConfidence: audioConfidence * 100,
+      averageConfidence: averageConfidence * 100,
     };
   });
 
-  // Filter chart data based on selected option
-  const filteredData = chartData.map((data) => {
-    return {
-      ...data,
-      logoConfidence:
-        filter === "audio" || filter === "average" ? 0 : data.logoConfidence,
-      audioConfidence:
-        filter === "logo" || filter === "average" ? 0 : data.audioConfidence,
-      averageConfidence:
-        filter === "logo" || filter === "audio" ? 0 : data.averageConfidence,
-    };
-  });
+  const toggleChart = (chart) => {
+    setActiveChart(chart);
+  };
 
   return (
-    <div className="flex flex-col bg-white border p-2 rounded-lg">
-      <Select value={filter} onValueChange={setFilter}>
-        <SelectTrigger className="w-[180px] mb-2 rounded-full border-none">
-          <SelectValue placeholder="Select filter" />
-        </SelectTrigger>
-        <SelectContent className="bg-white rounded-xl">
-          <SelectItem value="all">All</SelectItem>
-          <SelectItem value="logo">Logo</SelectItem>
-          <SelectItem value="audio">Audio</SelectItem>
-          <SelectItem value="average">Average Confidence</SelectItem>
-        </SelectContent>
-      </Select>
-      <ChartContainer
-        config={{
-          logoConfidence: {
-            label: "Logo Confidence",
-            color: "hsl(var(--chart-1))",
-          },
-          audioConfidence: {
-            label: "Audio Confidence",
-            color: "hsl(var(--chart-2))",
-          },
-          averageConfidence: {
-            label: "Average Confidence",
-            color: "hsl(var(--chart-3))",
-          },
-        }}
-        className="max-h-[40vh] w-full bg-white border rounded-lg pt-4 "
-      >
-        <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart data={filteredData}>
-            <XAxis
-              dataKey="timestamp"
-              stroke="#888888"
-              fontSize={12}
-              tickLine={false}
-              axisLine={false}
-            />
-            <YAxis
-              stroke="#888888"
-              fontSize={12}
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={(value) => `${value * 100}%`}
-            />
-            <Tooltip
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  return (
-                    <div className="rounded-lg border bg-background p-2 shadow-sm">
-                      <div className="grid grid-cols-2 gap-2">
-                        {filter !== "audio" && filter !== "average" && (
-                          <div className="flex flex-col">
-                            <span className="text-[0.70rem] uppercase text-muted-foreground">
-                              Logo
-                            </span>
-                            <span className="font-bold text-muted-foreground">
-                              {(payload[0]?.value * 100).toFixed(2)}%
-                            </span>
-                          </div>
-                        )}
-                        {filter !== "logo" && filter !== "average" && (
-                          <div className="flex flex-col">
-                            <span className="text-[0.70rem] uppercase text-muted-foreground">
-                              Audio
-                            </span>
-                            <span className="font-bold text-muted-foreground">
-                              {(
-                                payload[filter === "audio" ? 0 : 1]?.value * 100
-                              ).toFixed(2)}
-                              %
-                            </span>
-                          </div>
-                        )}
-                        {(filter === "all" || filter === "average") && (
-                          <div className="flex flex-col col-span-2">
-                            <span className="text-[0.70rem] uppercase text-muted-foreground">
-                              Average
-                            </span>
-                            <span className="font-bold text-muted-foreground">
-                              {(
-                                payload[filter === "average" ? 0 : 2]?.value *
-                                100
-                              ).toFixed(2)}
-                              %
-                            </span>
-                          </div>
-                        )}
+    <Card className="w-full shadow-inner shadow-accent/50 border p-0 rounded-xl">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <div className="flex space-x-2">
+          <Button
+            variant={activeChart === "all" ? "default" : "outline"}
+            size="sm"
+            onClick={() => toggleChart("all")}
+            className="bg-gray-100 text-gray-600 hover:bg-gray-200 rounded-full"
+          >
+            All
+          </Button>
+          <Button
+            variant={activeChart === "audio" ? "default" : "outline"}
+            size="sm"
+            onClick={() => toggleChart("audio")}
+            className="bg-blue-100 text-blue-600 hover:bg-blue-200 rounded-full"
+          >
+            Audio
+          </Button>
+          <Button
+            variant={activeChart === "logo" ? "default" : "outline"}
+            size="sm"
+            onClick={() => toggleChart("logo")}
+            className="bg-purple-100 text-purple-600 hover:bg-purple-200 rounded-full"
+          >
+            Logo
+          </Button>
+          <Button
+            variant={activeChart === "accuracy" ? "default" : "outline"}
+            size="sm"
+            onClick={() => toggleChart("accuracy")}
+            className="bg-green-100 text-green-600 hover:bg-green-200 rounded-full"
+          >
+            Accuracy
+          </Button>
+        </div>
+        <div className="flex justify-between items-center gap-4 mb-4">
+          <div className="text-base flex gap-4 items-center text-primary font-bold bg-background rounded-full px-3 py-2">
+            OCTOBER 2024
+            <Calendar size={16}/>
+          </div>
+          <div className="flex space-x-2  rounded-full bg-accent p-1">
+            {["Day", "Week", "Month"].map((range) => (
+              <Button
+                key={range}
+                variant={timeRange === range ? "default" : "outline"}
+                size="sm"
+                className="rounded-full border-none px-3 py-0"
+                onClick={() => setTimeRange(range)}
+              >
+                {range}
+              </Button>
+            ))}
+          </div>
+          <div className="bg-background rounded-full size-10 flex items-center justify-center">
+            <EllipsisVertical/>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="p-0">
+        <div className="pt-3 h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <ComposedChart data={chartData} barSize={8}>
+              <XAxis
+                dataKey="timestamp"
+                stroke="#888888"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+              />
+              <YAxis
+                yAxisId="left"
+                stroke="#888888"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+                tickFormatter={(value) => `${value}%`}
+              />
+              <YAxis
+                yAxisId="right"
+                orientation="right"
+                stroke="#888888"
+                fontSize={12}
+                tickLine={false}
+                axisLine={false}
+                tickFormatter={(value) => `${value}%`}
+              />
+              <Tooltip
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="rounded-lg border bg-background p-2 shadow-sm">
+                        <div className="grid grid-cols-2 gap-2">
+                          {(activeChart === "all" ||
+                            activeChart === "audio") && (
+                            <div className="flex flex-col">
+                              <span className="text-[0.70rem] uppercase text-muted-foreground">
+                                Audio
+                              </span>
+                              <span className="font-bold text-muted-foreground">
+                                {payload[0]?.value.toFixed(2)}%
+                              </span>
+                            </div>
+                          )}
+                          {(activeChart === "all" ||
+                            activeChart === "logo") && (
+                            <div className="flex flex-col">
+                              <span className="text-[0.70rem] uppercase text-muted-foreground">
+                                Logo
+                              </span>
+                              <span className="font-bold text-muted-foreground">
+                                {payload[1]?.value.toFixed(2)}%
+                              </span>
+                            </div>
+                          )}
+                          {(activeChart === "all" ||
+                            activeChart === "accuracy") && (
+                            <div className="flex flex-col col-span-2">
+                              <span className="text-[0.70rem] uppercase text-muted-foreground">
+                                Accuracy
+                              </span>
+                              <span className="font-bold text-muted-foreground">
+                                {payload[2]?.value.toFixed(2)}%
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  );
-                }
-                return null;
-              }}
-            />
-            <Legend />
-            {filter !== "audio" && filter !== "average" && (
-              <Bar
-                dataKey="logoConfidence"
-                fill="var(--color-logoConfidence)"
-                radius={[4, 4, 0, 0]}
+                    );
+                  }
+                  return null;
+                }}
               />
-            )}
-            {filter !== "logo" && filter !== "average" && (
-              <Bar
-                dataKey="audioConfidence"
-                fill="var(--color-audioConfidence)"
-                radius={[4, 4, 0, 0]}
-              />
-            )}
-            {filter === "all" && (
-              <Line
-                type="monotone"
-                dataKey="averageConfidence"
-                stroke="var(--color-averageConfidence)"
-                strokeWidth={4}
-                dot={true}
-              />
-            )}
-            {filter === "average" && (
-              <Area
-                type="monotone"
-                dataKey="averageConfidence"
-                fill="var(--color-averageConfidence)"
-                stroke="var(--color-averageConfidence)"
-                fillOpacity={0.3}
-              />
-            )}
-          </ComposedChart>
-        </ResponsiveContainer>
-      </ChartContainer>
-    </div>
+              <Legend />
+              {(activeChart === "all" || activeChart === "audio") && (
+                <Bar
+                  yAxisId="left"
+                  dataKey="audioConfidence"
+                  fill="#3b82f6"
+                  radius={[4, 4, 0, 0]}
+                />
+              )}
+              {(activeChart === "all" || activeChart === "logo") && (
+                <Bar
+                  yAxisId="left"
+                  dataKey="logoConfidence"
+                  fill="#a855f7"
+                  radius={[4, 4, 0, 0]}
+                />
+              )}
+              {(activeChart === "all" || activeChart === "accuracy") && (
+                <Line
+                  yAxisId="right"
+                  type="monotone"
+                  dataKey="averageConfidence"
+                  stroke="#22c55e"
+                  strokeWidth={4}
+                  dot={{ fill: "#22c55e", r: 4 }}
+                />
+              )}
+            </ComposedChart>
+          </ResponsiveContainer>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 import { Skeleton } from "@/components/ui/skeleton";
+import SalesChart from "@/components/charts/DemoChat";
+import TransformerPredictionChart from "@/components/tabs/dashboard/TranformerPredictionChart";
 
 const APMLocations = dynamic(() => import("@/components/maps/APMLocations"), {
   loading: () => (
@@ -120,6 +122,8 @@ const Page = () => {
 
             <TabsContent value="transformer">
               <TransformerDashboard />
+              <TransformerPredictionChart/>
+              <SalesChart/>
             </TabsContent>
           </div>
         </Tabs>
